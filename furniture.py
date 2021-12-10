@@ -15,9 +15,8 @@ class Handler:
 builder = Gtk.Builder()
 builder.add_from_file("ui.ui")
 builder.connect_signals(Handler())
-print(builder.get_objects())
+
 packagelist=builder.get_object('liststore1')
-tree=builder.get_object('ui_packagelist')
 
 for package in pm.search("",False):
     packagelist.append([package.title, package.description, package.id, package.version, package.repository, package.runtime, package.size['installed'], package.size['download'], package.branch])
